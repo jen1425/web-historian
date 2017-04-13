@@ -15,7 +15,6 @@ exports.serveAssets = function(response, asset, callback) {
 
   fs.readFile(asset, 'utf-8', function(err, data) {
     if(err) throw err; 
-     console.log('data ---------> ',data);
      callback(data);
 
   });
@@ -24,11 +23,8 @@ exports.serveAssets = function(response, asset, callback) {
 
 exports.sendData = function(response, asset, statusCode) {
 
-  console.log('calling serveAssets');
-
   response.writeHead(statusCode, exports.headers);
   exports.serveAssets(response, asset, function(htmlData) {
-    console.log('data in response end ------->',htmlData);
     response.end(htmlData);
   });
 };

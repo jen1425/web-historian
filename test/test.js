@@ -33,11 +33,11 @@ describe('server', function() {
 
         // Create or clear the file.
         var fd = fs.openSync(fixturePath, 'w');
-        fs.writeSync(fd, 'google');
+        fs.writeSync(fd, 'index.html');
         fs.closeSync(fd);
 
         // Write data to the file.
-        fs.writeFileSync(fixturePath, 'google');
+        fs.writeFileSync(fixturePath, 'index.html');
 
         request
           .get('/' + fixtureName)

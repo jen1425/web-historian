@@ -38,30 +38,21 @@ exports.readListOfUrls = function(callback) {
 };
 
 exports.isUrlInList = function(url, callback) {
-  console.log('trying to run function');
   
   exports.readListOfUrls(function(data){
     var a = (data.includes(url));
-    console.log('found value is '+a);
     callback(a);
     //return data;
   });
 };
 
 exports.addUrlToList = function(url, callback) {
-  // exports.isUrlInList(url, function(foundValue) {
-  //   if (!foundValue) { 
-  //     fs.appendFile(exports.paths.list, url, 'utf-8', function(err) {
-  //       console.log('error '+error);
-  //     });
-  //     callback(foundValue);
-  //   } 
-  // });
-fs.appendFile(exports.paths.list, url, 'utf-8', function(err){
- if(err) {
-  console.log(err);
- } else callback();
-});
+
+  fs.appendFile(exports.paths.list, url, 'utf-8', function(err){
+   if(err) {
+    console.log(err);
+   } else callback();
+  });
 };
 
 exports.isUrlArchived = function(url, callback) {

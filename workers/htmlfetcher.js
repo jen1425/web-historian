@@ -4,7 +4,8 @@
 var helpers = require('../helpers/archive-helpers.js');
 var CronJob = require('cron').CronJob;
 
-new CronJob('******', function() {
+new CronJob('*/1 * * * * *', function() {
+  console.log('running');
   helpers.readListOfUrls(function(urlList) {
     helpers.downloadUrls(urlList);
   });
